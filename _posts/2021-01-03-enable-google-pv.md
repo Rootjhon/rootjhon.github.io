@@ -35,7 +35,7 @@ With your property created, you now need to set up Data Stream to track your blo
 
 It should look like this:
 
-![google-analytics-data-stream](/posts/20210103/01-google-analytics-data-stream.png){: width="1086" height="542"}
+![google-analytics-data-stream](https://chirpy-img.netlify.app/posts/20210103/01-google-analytics-data-stream.png){: width="1086" height="542"}
 
 Now, click on the new data stream and grab the **Measurement ID**. It should look something like `G-V6XXXXXXXX`. Copy this to your `_config.yml`{: .filepath} file:
 
@@ -51,7 +51,7 @@ google_analytics:
 
 When you push these changes to your blog, you should start seeing the traffic on your Google Analytics. Play around with the Google Analytics dashboard to get familiar with the options available as it takes like 5 mins to pick up your changes. You should now be able to monitor your traffic in real time.
 
-![google-analytics-realtime](/posts/20210103/02-google-analytics-realtime.png){: width="616" height="557"}
+![google-analytics-realtime](https://chirpy-img.netlify.app/posts/20210103/02-google-analytics-realtime.png){: width="616" height="557"}
 
 ## Setup Page Views
 
@@ -190,7 +190,7 @@ There is a detailed [tutorial](https://developers.google.com/analytics/solutions
 
 If everything went good, you'll get this screen:
 
-![superProxy-deployed](/posts/20210103/03-superProxy-deployed.png){: width="1366" height="354"}
+![superProxy-deployed](https://chirpy-img.netlify.app/posts/20210103/03-superProxy-deployed.png){: width="1366" height="354"}
 
 ### Create Google Analytics Query
 
@@ -221,7 +221,7 @@ After the query is saved on GAE, a **Public Endpoint** (public access address) w
 
 Once all the hard part is done, it is very easy to enable the Page View on Chirpy theme. Your superProxy dashboard should look something like below and you can grab the required values.
 
-![superproxy-dashboard](/posts/20210103/05-superproxy-dashboard.png){: width="1210" height="694"}
+![superproxy-dashboard](https://chirpy-img.netlify.app/posts/20210103/05-superproxy-dashboard.png){: width="1210" height="694"}
 
 Update the `_config.yml`{: .filepath} file of [**Chirpy**][chirpy-homepage] project with the values from your dashboard, to look similar to the following:
 
