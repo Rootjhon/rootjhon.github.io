@@ -87,7 +87,7 @@ theme_mode:   # [light|dark]
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: 'https://fastly.jsdelivr.net/gh/Rootjhon/img_note@empty/1676013834932188d1c5a-bee0-40e6-a0a6-2973e0f343b0.jpg'
 
 # boolean type, the global switch for ToC in posts.
 toc: true
