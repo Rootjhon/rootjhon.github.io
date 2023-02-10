@@ -215,7 +215,7 @@ After <kbd>Run Query</kbd>, copy the generated contents of **API Query URI** at 
 
 After the query is saved on GAE, a **Public Endpoint** (public access address) will be generated, and we will get the query result in JSON format when accessing it. Finally, click <kbd>Enable Endpoint</kbd> in **Public Request Endpoint** to make the query effective, and click <kbd>Start Scheduling</kbd> in **Scheduling** to start the scheduled task.
 
-![superproxy-query](/posts/20210103/04-superproxy-query.png){: width="1100" height="126"}
+![superproxy-query](https://chirpy-img.netlify.app/posts/20210103/04-superproxy-query.png){: width="1100" height="126"}
 
 ## Configure Chirpy to Display Page View
 
