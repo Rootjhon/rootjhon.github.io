@@ -125,7 +125,7 @@ Preload table 是资产引用的所有**其他对象**的列表。当从 AssetBu
 
 If you determine that the memory overhead from the preload table is a problem, you can structure your loadable assets so that they have fewer complex loading dependencies.
 
-资源制作约束
+#### 资源制作约束
 
 - 避免制作过于复杂的静态预制
 - 预制尽量小
