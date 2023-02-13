@@ -1,11 +1,12 @@
 ---
 title: SBP-Scriptable Build Pipeline
-date: 2021-01-03 18:32:00 +0800
+date: 2022-04-11 22:41:00 +0800
 categories: [Unity,构建管线]
 tags: [构建]
 ---
 
 ##  前言
+
 **Scriptable Build Pipeline 是什么？能来带什么好处？**
 
 - 自定义 Unity 如何构建应用内容
