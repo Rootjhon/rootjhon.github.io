@@ -2,7 +2,7 @@
 title: GameOptizationforMobileGPU
 date: 2020-11-25 22:41:00 +0800
 categories: [Unity,性能优化]
-tags: [GPU]
+tags: [图形编程]
 ---
 
 ## FPS
