@@ -1,7 +1,7 @@
 ---
 title: SBP-Scriptable Build Pipeline
 date: 2021-01-03 18:32:00 -0500
-categories: [Unity]
+categories: [Unity,构建管线]
 tags: [构建]
 ---
 
