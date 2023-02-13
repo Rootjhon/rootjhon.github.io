@@ -1,6 +1,6 @@
 ---
 title: AssetBundle序列化与运行时的关系
-date: 2022-02-12 18:32:00 -0500
+date: 2022-02-12 18:32:00 +0800
 categories: [Unity, AssetBundle]
 tags: [AssetBundle, 内存优化]
 
@@ -136,4 +136,4 @@ If you determine that the memory overhead from the preload table is a problem, y
 
 这个资源引擎在处理的时候每个大版本都有所不同，需要自行做实验分析
 
-- https://docs.unity3d.com/Manual/SpritePackerModes.html
+- [SpritePackerModes](https://docs.unity3d.com/Manual/SpritePackerModes.html) 
