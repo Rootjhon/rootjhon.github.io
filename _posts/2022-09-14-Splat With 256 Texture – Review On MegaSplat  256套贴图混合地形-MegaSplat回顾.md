@@ -7,7 +7,7 @@ tags: [地形系统]
 
 # Splat With 256 Texture – Review On MegaSplat | 256套贴图混合地形-MegaSplat回顾
 
-![Splat with 256 Texture – Review on MegaSplat | 256套贴图混合地形-MegaSplat回顾](http://ma-yidong.com/wp-content/uploads/2018/09/5.png)
+![256套贴图混合地形-MegaSplat回顾](http://ma-yidong.com/wp-content/uploads/2018/09/5.png)
 
 最近看到[MegaSplat](https://assetstore.unity.com/packages/tools/terrain/megasplat-76166)这个插件感觉很有意思，在这里做一介绍。作者[Jason Booth](https://github.com/slipster216)是有二十多年经验的程序员，现在是Disruptor Beam工作室的客户端和图形架构师，最近unity官方博客还推了[行尸走肉：行军作战移动端优化经验](http://forum.china.unity3d.com/thread-32642-1-1.html)，便是这位大神所写
 
