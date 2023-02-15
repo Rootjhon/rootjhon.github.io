@@ -1,6 +1,6 @@
 ---
 title: AssetBundle序列化与运行时的关系
-date: 2022-02-12 18:32:00 +0800
+date: 2023-02-12 18:32:00 +0800
 categories: [Unity, AssetBundle]
 tags: [AssetBundle, 内存优化]
 
