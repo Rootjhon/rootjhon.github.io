@@ -8,10 +8,10 @@ platforms:
     icon: "fa-brands fa-qq"
     link: "http://connect.qq.com/widget/shareqq/index.html?url=URL&showcount=0&desc=1&summary=2&title=TITLE&site=junqiang&pics="
 
-  # -
-  #   type: Wechat
-  #   icon: "fa-brands fa-weixin"
-  #   link: "http://www.jiathis.com/share?webid=weixin&url=URL&title=TITLE&summary=1&pic="
+  -
+    type: Wechat
+    icon: "fa-brands fa-weixin"
+    link: "https://www.addtoany.com/ext/wechat/share/#url=URL&title=TITLE"
 
   -
     type: Linkedin
