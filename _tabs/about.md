@@ -1,7 +1,7 @@
 ---
-# the default layout is 'page'
-icon: fas fa-info-circle
-order: 4
+title: 关于
+icon: iconfont icon-info
+order: 5
 ---
 
 TODO...

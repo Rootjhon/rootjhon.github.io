@@ -79,6 +79,12 @@ google_analytics:
 #
 theme_mode:   # [light|dark]
 
+# 启用动画背景特效
+backgroud_animation: false
+
+# 启用鼠标点击特效
+mouse_click_effect: false
+
 # The CDN endpoint for images.
 # Notice that once it is assigned, the CDN url
 # will be added to all image (site avatar & posts' images) paths starting with '/'
@@ -125,7 +131,7 @@ pwa:
 
 paginate: 8
 
-# ------------ The following options are not recommended to be modified ------------------
+# ------------ 下面的设置不建议修改 ------------------
 
 kramdown:
   syntax_highlighter: rouge
