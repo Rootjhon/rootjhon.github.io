@@ -5,12 +5,13 @@ categories: [Unity,性能优化]
 tags: [资源管理]
 ---
 
-场景objects数量在Loading进战场时达到118060，此时触发UnloadUnusedAssets，引擎通过FindAllLiveObjects收集所有Object，并为其建立ObjectState结构，每个ObjectState 20个字节，20*118060=2.25M
-其后调用CreateObjectToIndexMappingFromNonRootObjects并Reserve 2倍的内存的Dictionary空间（2*2.25M=4.5M），把FindAllLiveObjects的ObjectState插入临时变量里以供后面使用
+场景objects数量在Loading进战场时达到118060，此时触发`UnloadUnusedAssets`，引擎通过`FindAllLiveObjects`收集所有Object，并为其建立ObjectState结构，每个ObjectState 20个字节，`20*118060=2.25M`
 
-所以UnloadUnusedAssets时产生了约6.75M内存
+其后调用`CreateObjectToIndexMappingFromNonRootObjects`并分配 2倍的内存的Dictionary空间`（2*2.25M=4.5M）`，把`FindAllLiveObjects`的ObjectState插入临时变量里以供后面使用
 
-```
+所以`UnloadUnusedAssets`时产生了约**6.75M**内存
+
+```c++
 struct ObjectState
 {
     Object* object;
@@ -21,7 +22,7 @@ struct ObjectState
 };
 ```
 
-```
+```c++
 #if ASSET_REMAP_TABLE
 static void CreateObjectToIndexMappingFromNonRootObjects(GarbageCollectorState& gcState)
 {
