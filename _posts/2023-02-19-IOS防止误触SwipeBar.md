@@ -23,7 +23,7 @@ tags: [手势交互]
 
 IOS官方给出的解决方案就是，在UIViewController中重载preferredScreenEdgesDeferringSystemGestures属性。有些文章说是函数，但我在IOS12的SDK中看到的是属性，具体如下：
 
-```objective-c
+```objc
 @interface UIViewController (UIScreenEdgesDeferringSystemGestures)
 
 // Override to return a child view controller or nil. If non-nil, that view controller's screen edges deferring system gestures will be used. If nil, self is used. Whenever the return value changes, -setNeedsScreenEdgesDeferringSystemGesturesUpdate should be called.
@@ -41,7 +41,7 @@ IOS官方给出的解决方案就是，在UIViewController中重载preferredScre
 
 preferredScreenEdgesDeferringSystemGestures是一个只读属性，返回`UIRectEdge`对象，其代表屏幕的哪些边缘不需要首先响应系统手势——有上下左右4个边缘可选。
 
-```objective-c
+```objc
 typedef NS_OPTIONS(NSUInteger, UIRectEdge) {
     UIRectEdgeNone   = 0,
     UIRectEdgeTop    = 1 << 0,
@@ -55,7 +55,7 @@ typedef NS_OPTIONS(NSUInteger, UIRectEdge) {
 
 在`UIViewController`的子类，重写这个属性，返回不需要首先触发系统边缘手势的`UIRectEdge`对象即可。如下
 
-```objective-c
+```objc
 - (UIRectEdge)preferredScreenEdgesDeferringSystemGestures
 {
     return UIRectEdgeBottom;
@@ -70,7 +70,7 @@ typedef NS_OPTIONS(NSUInteger, UIRectEdge) {
 
 在对应的 ViewControll 中添加如下代码，我们这边开启的是所有边界限制其中包括了上、下边界。在下拉或者上拉的话会先触发 App 内部手势，同时出现一个小箭头然后在箭头消失之前再次滑动就会触发系统手势。
 
-```objective-c
+```objc
 -(UIRectEdge)preferredScreenEdgesDeferringSystemGestures
 {
     return UIRectEdgeAll;

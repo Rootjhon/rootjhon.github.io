@@ -98,6 +98,10 @@ This is an example of `Inline Code`.
 
 ## Filepath
 
+```
+`/path/to/the/file.extend`{: .filepath}.
+```
+
 Here is the `/path/to/the/file.extend`{: .filepath}.
 
 ## Code blocks
@@ -178,7 +182,94 @@ The image below will toggle dark/light mode based on theme preference, notice it
 
 {% include embed/youtube.html id='Balreaj8Yqs' %}
 
+## 运行代码显示结果
+
+````
+```rust
+fn main() {
+    println!("hello world");
+}
+```
+{: run="rust" }
+````
+
+
+
+```rust
+fn main() {
+    println!("hello world");
+}
+```
+{: run="rust" }
+
+语言支持情况：
+
+| 已支持的语言 | `run="lang"` 参数  | 后端                                            |
+| ------------ | ------------------ | ----------------------------------------------- |
+| C++          | `run="cpp"`        | [Coliru](https://coliru.stacked-crooked.com/)   |
+| JavaScript   | `run="javascript"` | N/A (本地)                                      |
+| Python       | `run="python"`     | [Online Python](https://www.online-python.com/) |
+| Rust         | `run="rust"`       | [Rust Playground](https://play.rust-lang.org/)  |
+
+## 单行代码着色
+
+```
+`let val_rust = 123;`{:.language-rust}
+```
+
+`let val_rust = 123;`{:.language-rust}
+
+```
+`local val_lua = 123`{:.language-lua}
+```
+
+`local val_lua = 123`{:.language-lua}
+
+
+
+## 代码块高亮
+
+````
+```c
+int main(int argc, char* argv[]) {
+   return 0;
+}
+```
+{: highlight-lines="2" }
+````
+
+```c
+int main(int argc, char* argv[]) {
+   return 0;
+}
+```
+{: highlight-lines="2" }
+
+
+````
+```plaintext
+由于 Rouge 的特性，不会对纯文本代码段进行分割，
+因此虽然该代码段有很多行，但是 Rouge 会使用一整个 #text 来包装他们。
+这也是为什么我们需要先将元素以 `\n` 分割为多个元素，
+否则像这样的纯文本，很难对其进行行高亮。
+```
+{: highlight-lines="2" }
+````
+
+```plaintext
+由于 Rouge 的特性，不会对纯文本代码段进行分割，
+因此虽然该代码段有很多行，但是 Rouge 会使用一整个 #text 来包装他们。
+这也是为什么我们需要先将元素以 `\n` 分割为多个元素，
+否则像这样的纯文本，很难对其进行行高亮。
+```
+{: highlight-lines="2" }
+
+
+
 ## Reverse Footnote
 
 [^footnote]: The footnote source
 [^fn-nth-2]: The 2nd footnote source
+
+
+

@@ -1,7 +1,7 @@
 ---
 title: Could not locate device support files
 date: 2017-03-08 18:32:00 +0800
-categories: [iOS, XCode]
+categories: [IOS, xcode]
 tags: [真机调试]
 
 # Ref
