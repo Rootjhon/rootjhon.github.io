@@ -9,35 +9,37 @@ tags: []
 
 # 前言
 
-> 首先需要明白的是 C与 Lua 的虚拟堆栈。
-> 引用 Lua 官方的解释：
+首先需要明白的是 C与 Lua 的虚拟堆栈。
+引用 Lua 官方的解释：
 
->> **The Stack**
->>
->> >Lua uses a virtual stack to pass values to and from C. Each element in this stack represents a Lua value (nil, number, string, etc.).
->> >Whenever Lua calls C, the called function gets a new stack, which is independent of previous stacks and of stacks of C functions that are still active. This stack initially contains any arguments to the C function and it is where the C function pushes its results to be returned to the caller (see lua_CFunction).
->> >For convenience, most query operations in the API do not follow a strict stack discipline. Instead, they can refer to any element in the stack by using an index: A positive index represents an absolute stack position (starting at 1); a negative index represents an offset relative to the top of the stack. More specifically, if the stack has n elements, then index 1 represents the first element (that is, the element that was pushed onto the stack first) and index n represents the last element; index -1 also represents the last element (that is, the element at the top) and index -n represents the first element.
+**The Stack**
 
->> **Stack Size**
->> >When you interact with the Lua API, you are responsible for ensuring consistency. In particular, you are responsible for controlling stack overflow. You can use the function `lua_checkstack` to ensure that the stack has extra slots when pushing new elements.
->> >Whenever Lua calls C, it ensures that the stack has at least `LUA_MINSTACK` extra slots. `LUA_MINSTACK` is defined as 20, so that usually you do not have to worry about stack space unless your code has loops pushing elements onto the stack.
->> >When you call a Lua function without a fixed number of results (see `lua_call`), Lua ensures that the stack has enough size for all results, but it does not ensure any extra space. So, before pushing anything in the stack after such a call you should use `lua_checkstack`.
+>Lua uses a virtual stack to pass values to and from C. Each element in this stack represents a Lua value (nil, number, string, etc.).
+>>Whenever Lua calls C, the called function gets a new stack, which is independent of previous stacks and of stacks of C functions that are still active. This stack initially contains any arguments to the C function and it is where the C function pushes its results to be returned to the caller (see lua_CFunction).
+>For convenience, most query operations in the API do not follow a strict stack discipline. Instead, they can refer to any element in the stack by using an index: A positive index represents an absolute stack position (starting at 1); a negative index represents an offset relative to the top of the stack. More specifically, if the stack has n elements, then index 1 represents the first element (that is, the element that was pushed onto the stack first) and index n represents the last element; index -1 also represents the last element (that is, the element at the top) and index -n represents the first element.
+
+**Stack Size**
+
+> When you interact with the Lua API, you are responsible for ensuring consistency. In particular, you are responsible for controlling stack overflow. You can use the function `lua_checkstack` to ensure that the stack has extra slots when pushing new elements.
+> Whenever Lua calls C, it ensures that the stack has at least `LUA_MINSTACK` extra slots. `LUA_MINSTACK` is defined as 20, so that usually you do not have to worry about stack space unless your code has loops pushing elements onto the stack.
+> When you call a Lua function without a fixed number of results (see `lua_call`), Lua ensures that the stack has enough size for all results, but it does not ensure any extra space. So, before pushing anything in the stack after such a call you should use `lua_checkstack`.
 
 
 # C语言操作 Lua 全局变量（基本类型）
 
 ## 获取 Lua 全局变量
 
-> C语言读取Lua中的全局变量需要两步：
-> > - 将全局变量从`Lua Space`压入虚拟堆栈
-> > - 从堆栈将全局变量读取到 `C Space` 中
+C语言读取Lua中的全局变量需要两步：
 
-> **在`Lua`和`C`的交互中，`Lua`无法看到和操作虚拟堆栈，仅在`C`语言中有操作堆栈的权利。**
+> - 将全局变量从`Lua Space`压入虚拟堆栈
+> - 从堆栈将全局变量读取到 `C Space` 中
+
+**在`Lua`和`C`的交互中，`Lua`无法看到和操作虚拟堆栈，仅在`C`语言中有操作堆栈的权利。**
 
 ----
 
+`Lua` 代码：
 
-> `Lua` 代码：
 ```lua
 global_Num = 1789;
 global_bool = true
@@ -47,7 +49,7 @@ print("Lua global_bool ", global_bool);
 print("Lua global_Str ", global_Str);
 ```
 
-> C++代码：
+C++代码：
 
 ```c++
 void GetLua_Global(lua_State *varState)
@@ -67,13 +69,14 @@ void GetLua_Global(lua_State *varState)
 	cout << "C global_Str "  << lua_tostring(varState, -1) << endl;
 }
 ```
->运行输出：
->> ![](https://fastly.jsdelivr.net/gh/Rootjhon/img_note@empty/16763661323421676366132029.png) 
+运行输出：
+
+>![](https://fastly.jsdelivr.net/gh/Rootjhon/img_note@empty/16763661323421676366132029.png) 
 
 
 ## 设置 Lua 全局变量
 
-> C++代码：
+C++代码：
 
 ```c++
 void SetLua_Global(lua_State *varState)
@@ -91,12 +94,13 @@ void SetLua_Global(lua_State *varState)
 }
 ```
 
->运行输出:
->> ![](https://fastly.jsdelivr.net/gh/Rootjhon/img_note@empty/16763661503401676366149880.png) 
+运行输出:
 
-#C语言调用Lua函数
+>![](https://fastly.jsdelivr.net/gh/Rootjhon/img_note@empty/16763661503401676366149880.png) 
 
- > Lua 代码：
+# C语言调用Lua函数
+
+Lua 代码：
 
 ```lua
 function Luafun(varX,varY)
@@ -105,7 +109,7 @@ function Luafun(varX,varY)
 end
 ```
 
-> C代码：
+C代码：
 
 
 ```c++
@@ -133,14 +137,15 @@ void C_callLuaFun(lua_State *varState, double varX, double varY)
 }
 ```
 
-> 调用 `C_callLuaFun(L,-2,-7)` 运行结果:
-> > ![](https://fastly.jsdelivr.net/gh/Rootjhon/img_note@empty/16763661643521676366163777.png) 
+调用 `C_callLuaFun(L,-2,-7)` 运行结果:
+
+> ![](https://fastly.jsdelivr.net/gh/Rootjhon/img_note@empty/16763661643521676366163777.png) 
 
 
 
 # C语言操作Lua Table 表
 
-> Lua代码：
+Lua代码：
 
 ```lua
 MyTable = {Title = "Blog",Url = "http://blog.csdn.net/admin_jhon",Author = "AdminJhon"}
@@ -153,7 +158,7 @@ function ShowCurTime()
 end
 ```
 
-> C\C++代码：
+C\C++代码：
 
 ```c++
 void Oper_LuaTable(lua_State *varState)
@@ -195,11 +200,12 @@ void Oper_LuaTable(lua_State *varState)
 }
 ```
 
-> 运行结果:
-> > ![](https://fastly.jsdelivr.net/gh/Rootjhon/img_note@empty/16763661783401676366177966.png) 
+运行结果:
+
+> ![](https://fastly.jsdelivr.net/gh/Rootjhon/img_note@empty/16763661783401676366177966.png) 
 
 
 
 # 写在最后
 
-> 例子只是一些简单的示例，核心思想都是通过操作虚拟堆栈实现的。
+例子只是一些简单的示例，核心思想都是通过操作虚拟堆栈实现的。

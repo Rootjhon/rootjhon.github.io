@@ -8,7 +8,7 @@ tags: [UnityLinker]
 # UnityLinker
 
 | Options                             | 描述                                                         |
-| ----------------------------------- | ------------------------------------------------------------ |
+| :---------------------------------- | :----------------------------------------------------------- |
 | --search-directory=<value,value,..> | Add a directory where the linker will look for assemblies    |
 | --descriptor-directory=<value>      | Add a directory where the linker will look for descriptor files |
 | --out=<value>                       | Specify the output directory, default to `output'            |

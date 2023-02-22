@@ -7,7 +7,7 @@ tags: [Gradle]
 
 # 编译并安装到设备
 
-```
+```bash
 @echo off
 
 gradle assembleDebug && adb install -r build\outputs\apk\debug\CurlCompatibility-debug.apk && pause
@@ -17,7 +17,7 @@ pause
 
 # 测试设备是否支持Andorid 64bit （安装指定的CPU架构）
 
-```
+```bash
 :: Command Line
     # A successful install:
     > adb install --abi armeabi-v7a YOUR_APK_FILE.apk
