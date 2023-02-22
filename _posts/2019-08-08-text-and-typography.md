@@ -62,8 +62,18 @@ Moon
 
 > This line shows the _block quote_.
 
-## Prompts
+## Prompts - 提示泡泡
 
+```markdown
+> An example showing the `tip` type prompt.
+{: .prompt-tip }
+
+{: .prompt-info }
+
+{: .prompt-warning }
+
+{: .prompt-danger }
+```
 > An example showing the `tip` type prompt.
 {: .prompt-tip }
 
@@ -89,6 +99,10 @@ Moon
 <http://127.0.0.1:4000>
 
 ## Footnote
+
+```markdown
+Click the hook will locate the footnote[^footnote], and here is another footnote[^fn-nth-2].
+```
 
 Click the hook will locate the footnote[^footnote], and here is another footnote[^fn-nth-2].
 
@@ -133,6 +147,10 @@ fi;
 ## Mathematics
 
 The mathematics powered by [**MathJax**](https://www.mathjax.org/):
+
+```
+$$ \sum_{n=1}^\infty 1/n^2 = \frac{\pi^2}{6} $$
+```
 
 $$ \sum_{n=1}^\infty 1/n^2 = \frac{\pi^2}{6} $$
 
@@ -182,6 +200,8 @@ The image below will toggle dark/light mode based on theme preference, notice it
 
 {% include embed/youtube.html id='Balreaj8Yqs' %}
 
+
+
 ## 运行代码显示结果
 
 ````
@@ -202,6 +222,8 @@ fn main() {
 ```
 {: run="rust" }
 
+
+
 语言支持情况：
 
 | 已支持的语言 | `run="lang"` 参数  | 后端                                            |
@@ -210,6 +232,8 @@ fn main() {
 | JavaScript   | `run="javascript"` | N/A (本地)                                      |
 | Python       | `run="python"`     | [Online Python](https://www.online-python.com/) |
 | Rust         | `run="rust"`       | [Rust Playground](https://play.rust-lang.org/)  |
+
+
 
 ## 单行代码着色
 
@@ -267,6 +291,11 @@ int main(int argc, char* argv[]) {
 
 
 ## Reverse Footnote
+
+```
+[^footnote]: The footnote source
+[^fn-nth-2]: The 2nd footnote source
+```
 
 [^footnote]: The footnote source
 [^fn-nth-2]: The 2nd footnote source
