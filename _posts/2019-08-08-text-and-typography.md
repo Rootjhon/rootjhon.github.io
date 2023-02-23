@@ -110,6 +110,23 @@ Click the hook will locate the footnote[^footnote], and here is another footnote
 
 This is an example of `Inline Code`.
 
+### 单行代码着色
+
+```
+`let val_rust = 123;`{:.language-rust}
+```
+
+`let val_rust = 123;`{:.language-rust}
+
+```
+`local val_lua = 123`{:.language-lua}
+```
+
+`local val_lua = 123`{:.language-lua}
+
+
+
+
 ## Filepath
 
 ```
@@ -234,20 +251,6 @@ fn main() {
 | Rust         | `run="rust"`       | [Rust Playground](https://play.rust-lang.org/)  |
 
 
-
-## 单行代码着色
-
-```
-`let val_rust = 123;`{:.language-rust}
-```
-
-`let val_rust = 123;`{:.language-rust}
-
-```
-`local val_lua = 123`{:.language-lua}
-```
-
-`local val_lua = 123`{:.language-lua}
 
 
 
