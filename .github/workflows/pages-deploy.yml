@@ -8,6 +8,9 @@ on:
       - .gitignore
       - README.md
       - LICENSE
+      - 'local_checker.bat'
+      - 'local_start.bat'
+      - 'ruby_cmd.bat'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:

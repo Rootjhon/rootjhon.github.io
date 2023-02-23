@@ -43,14 +43,14 @@ lineinfo.txt
 
 ## **原因**
 
-该符号文件每次在ProjectFolder/Temp/ directory下构建时被创建，当编辑器应用退出后被移除，所以您可能看不到它们。
+该符号文件每次在 `<ProjectFolder>/Temp/ directory`{: .filepath}下构建时被创建，当编辑器应用退出后被移除，所以您可能看不到它们。
 
 ## **解决方案**
 
 每次构建后，您可以从下述位置获得符号：
 
- - ProjectFolder\Temp\StagingArea\libs\x86\libil2cpp.so.debug
- - ProjectFolder\Temp\StagingArea\libs\armeabi-v7a\libil2cpp.so.debug
+ - `<ProjectFolder>\Temp\StagingArea\libs\x86\libil2cpp.so.debug`{: .filepath}
+ - `<ProjectFolder>\Temp\StagingArea\libs\armeabi-v7a\libil2cpp.so.debug`{: .filepath}
 
 确保在关闭Unity编辑器之前将符号文件复制到不同的文件夹中。您也可以使用下面的后期构建脚本：
 

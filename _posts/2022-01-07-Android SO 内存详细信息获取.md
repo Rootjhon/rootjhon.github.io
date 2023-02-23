@@ -7,12 +7,33 @@ tags: [ADB]
 
 ## 获取内存方法一：dumpsys meminfo
 
+在adb下输入如下命令：
 
-```
-在adb下输入如下命令：adb shell dumpsys meminfo <yourpakagename>
+
+```bash
+adb shell dumpsys meminfo <yourpakagename>
 ```
 
-![](https://cdn.jsdelivr.net/gh/Rootjhon/img_note@main/1614154112282-1614154112276.png)
+
+
+|                  | 说明                                                         |
+| ---------------- | ------------------------------------------------------------ |
+| Pss TOTAL值      | 内存所实际占用的值。                                         |
+| Dalvik Heap Size | 从RuntimetotalMemory0获得，DalvikHeap总共的内存大小。        |
+| Dalvik HeapAlloc | RuntimetotalMemory()-freeMemory(),Dalvik Heap分配的内存大小。 |
+| Dalvik Heap Free | 从RuntimefreeMemory()获得，DalvikHeap剩余的内存大小。 |
+| Dalvik Heap Size | 约等于Dalvik HeapAlloc+Dalvik HeapFree。 |
+| .so mmap |C库代码占用的内存。|
+| .jar mmap | Java文件代码占用的内存。 |
+| .apk mmap | apk代码占用的内存。 |
+| .ttf mmap | ttf文件代码占用的内存。 |
+| .dex mmap | Dex文件代码占用的内存。 |
+| Other mmap | 其他文件占用的内存。 |
+| Cursor | /dev/ashmem/Cursor Cursor消耗的内存（KB)。 |
+| Ashmem | /dev/ashmem,匿名共享内存用来提供共享内存通过分配一个多个进程可以共享的带名称的内存块。 |
+| Other dev | /dev/,内部driver占用的在"Otherdev"。 |
+
+
 
 这种方法获取内存可能存在一个问题：获取内存不够精准，如果Android应用中的库文件，没有以.so后缀名结尾，那么这部分内存占用不会归为“.so mmap”中，而是归为"Other mmap"中。
 
@@ -21,9 +42,15 @@ tags: [ADB]
 
 在adb下输入如下命令：
 
-1. adb -d shell ps | grep com.sohu.inputmethod.sogou | awk '{print$2;}'  //打印被测应用的进程id
-1. adb -d shell su --command=\'cat /[PID]/smaps >/sdcard\'  //把PID对应的smaps文件拷贝到手机的sdcard上。注意必须用cat，不能用cp
-1. adb –d pull /sdcard/smaps  //下载smaps文件
+```bash
+# 打印被测应用的进程id
+adb -d shell ps | grep com.sohu.inputmethod.sogou | awk '{print$2;}'  
+# 把PID对应的smaps文件拷贝到手机的sdcard上。注意必须用cat，不能用cp
+adb -d shell su --command=\'cat /[PID]/smaps >/sdcard\'  
+# 下载smaps文件
+adb –d pull /sdcard/smaps  
+```
+
 1. 解析smaps文件
 
 ![](https://cdn.jsdelivr.net/gh/Rootjhon/img_note@main/1614154130197-1614154130191.png)

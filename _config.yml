@@ -202,6 +202,9 @@ exclude:
   - gulpfile.js
   - node_modules
   - package*.json
+  - 'local_checker.bat'
+  - 'local_start.bat'
+  - 'ruby_cmd.bat'
 
 jekyll-archives:
   enabled: [categories, tags]
