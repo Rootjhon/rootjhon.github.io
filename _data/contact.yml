@@ -2,10 +2,13 @@
 
 -
   type: github
-  icon: 'iconfont icon-github'
+  icon: 'fab fa-github'
+
 -
-  type: twitter
-  icon: 'iconfont icon-twitter'
+  type: zhihu
+  icon: 'iconfont icon-zhihu1'
+  url: 'https://www.zhihu.com/people/games_engine'
+
 -
   type: email
   icon: 'iconfont icon-mail'
@@ -16,6 +19,9 @@
   noblank: true
 
 # Uncomment and complete the url below to enable more contact options
+# -
+#   type: twitter
+#   icon: 'iconfont icon-twitter'
 # -
 #   type: mastodon
 #   icon: 'iconfont icon-mastodon'   # icons powered by <https://fontawesome.com/>
