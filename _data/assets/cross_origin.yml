@@ -83,5 +83,6 @@ iconfont:
     # 此 css 包含以 'icon-' 为前缀的图标，为模板的核心图标，请勿删除。
     - //at.alicdn.com/t/c/font_2440352_flilaejlkj.css
     - //at.alicdn.com/t/c/font_3901536_wcbk169fyue.css
+    - //at.alicdn.com/t/c/font_3901536_9zr83rgtimd.css
     # 添加你的 Iconfont 图标链接
     # - 
