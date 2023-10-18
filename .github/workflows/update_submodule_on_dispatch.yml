@@ -18,9 +18,19 @@ jobs:
 
     - name: Update submodule
       run: |
-        git submodule update --remote --recursive
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
-        git add path/to/your/submodule
-        git commit -m "Update submodule" || echo "No changes to commit"
+
+        SUBMODULES=(
+          "assets/lib"
+          "_posts"
+        )
+
+        for submodule in "${SUBMODULES[@]}"; do
+          echo "Updating submodule: $submodule"
+          git submodule update --remote --recursive "$submodule"
+          git add "$submodule"
+        done
+
+        git commit -m "Update submodules" || echo "No changes to commit"
         git push || echo "No changes to push"
