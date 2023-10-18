@@ -57,6 +57,7 @@ jobs:
           echo "Listing directory contents:"
           ls -la
           echo "Listing submodule contents:"
+          ls -la assets/lib
           ls -la _posts
 
       - name: Build site
