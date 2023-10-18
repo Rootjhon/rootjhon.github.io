@@ -1,7 +1,9 @@
 [submodule "assets/lib"]
 	path = assets/lib
 	url = https://github.com/Rootjhon/chirpy-static-assets.git
+	branch = main
 
 [submodule "_posts"]
 	path = _posts
 	url = https://github.com/Rootjhon/BlogPosts.git
+	branch = master
