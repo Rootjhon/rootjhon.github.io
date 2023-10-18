@@ -23,40 +23,24 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  sync:
-    name: 'Submodules Sync'
-    runs-on: ubuntu-latest
-
-    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
-    defaults:
-      run:
-        shell: bash
-
-    steps:
-    # Checkout the repository to the GitHub Actions runner
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        token: ${{ secrets.POST_TOKEN }}
-        submodules: true
-
-    # Update references
-    - name: Git Sumbodule Update
-      run: |
-        git pull --recurse-submodules
-        git submodule update --remote --recursive        
-
   build:
     runs-on: ubuntu-latest
 
     steps:
+      
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           submodules: 'recursive'
+          token: ${{ secrets.POST_TOKEN }}
           # If using the 'assets' git submodule from Chirpy Starter, uncomment above
           # (See: https://github.com/cotes2020/chirpy-starter/tree/main/assets)
+
+      - name: Git Submodule Update
+        run: |
+          git pull --recurse-submodules
+          git submodule update --remote --recursive
 
       - name: Setup Pages
         id: pages
