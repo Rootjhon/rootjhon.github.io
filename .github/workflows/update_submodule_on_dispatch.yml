@@ -3,7 +3,7 @@ name: "Update Submodule on Dispatch"
 on:
   repository_dispatch:
     types: [submodule_updated]
-    
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -24,12 +24,9 @@ jobs:
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
 
-        SUBMODULES=(
-          "assets/lib"
-          "_posts"
-        )
+        SUBMODULES=$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }')
 
-        for submodule in "${SUBMODULES[@]}"; do
+        for submodule in $SUBMODULES; do
           echo "Updating submodule: $submodule"
           git submodule update --remote --recursive "$submodule"
           git add "$submodule"
