@@ -54,13 +54,13 @@ jobs:
           ruby-version: 3   # reads from a '.ruby-version' or '.tools-version' file if 'ruby-version' is omitted
           bundler-cache: true
 
-      - name: List Directory
-        run: |
-          echo "Listing directory contents:"
-          ls -la
-          echo "Listing submodule contents:"
-          ls -la assets/lib
-          ls -la _posts
+      # - name: List Directory
+      #   run: |
+      #     echo "Listing directory contents:"
+      #     ls -la
+      #     echo "Listing submodule contents:"
+      #     ls -la assets/lib
+      #     ls -la _posts
 
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
