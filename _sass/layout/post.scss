@@ -91,6 +91,8 @@ h1 + .post-meta {
 
       button {
         padding: 0;
+        border: none;
+        line-height: inherit;
 
         @extend %cursor-pointer;
       }
