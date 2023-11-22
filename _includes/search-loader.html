@@ -12,7 +12,9 @@
         {tags}
       </div>
     </header>
-    <p>{snippet}</p>
+    {% if snippet != "" %}
+      <p>{snippet}</p>
+    {% endif %}
   </article>
 {% endcapture %}
 
