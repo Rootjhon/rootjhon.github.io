@@ -3,29 +3,21 @@ import terser from '@rollup/plugin-terser';
 import license from 'rollup-plugin-license';
 import path from 'path';
 
-const SRC_DEFAULT = '_javascript';
-const DIST_DEFAULT = 'assets/js/dist';
+const JS_SRC = '_javascript';
+const JS_DIST = 'assets/js/dist';
 const isProd = process.env.NODE_ENV === 'production';
 
-function build(filename, opts) {
-  let src = SRC_DEFAULT;
-  let dist = DIST_DEFAULT;
-
-  if (typeof opts !== 'undefined') {
-    src = opts.src || src;
-    dist = opts.dist || dist;
-  }
-
+function build(filename) {
   return {
-    input: [`${src}/${filename}.js`],
+    input: [`${JS_SRC}/${filename}.js`],
     output: {
-      file: `${dist}/${filename}.min.js`,
+      file: `${JS_DIST}/${filename}.min.js`,
       format: 'iife',
       name: 'Chirpy',
       sourcemap: !isProd
     },
     watch: {
-      include: `${src}/**`
+      include: `${JS_SRC}/**`
     },
     plugins: [
       babel({
@@ -36,7 +28,7 @@ function build(filename, opts) {
       license({
         banner: {
           commentStyle: 'ignored',
-          content: { file: path.join(__dirname, SRC_DEFAULT, '_copyright') }
+          content: { file: path.join(__dirname, JS_SRC, '_copyright') }
         }
       }),
       isProd && terser()
@@ -50,7 +42,5 @@ export default [
   build('categories'),
   build('page'),
   build('post'),
-  build('misc'),
-  build('app', { src: `${SRC_DEFAULT}/pwa` }),
-  build('sw', { src: `${SRC_DEFAULT}/pwa`, dist: '.' })
+  build('misc')
 ];
