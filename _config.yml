@@ -60,6 +60,9 @@ webmaster_verifications:
 google_analytics:
   id: # fill in your Google Analytics ID
 
+goatcounter:
+  id: # fill in your Goatcounter ID
+
 # Prefer color scheme setting.
 #
 # Note: Keep empty will follow the system prefer color by default,

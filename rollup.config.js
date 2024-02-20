@@ -9,15 +9,15 @@ const isProd = process.env.NODE_ENV === 'production';
 
 function build(filename) {
   return {
-    input: [`${JS_SRC}/${filename}.js`],
+    input: [`${SRC_DEFAULT}/${filename}.js`],
     output: {
-      file: `${JS_DIST}/${filename}.min.js`,
+      file: `${DIST_DEFAULT}/${filename}.min.js`,
       format: 'iife',
       name: 'Chirpy',
       sourcemap: !isProd
     },
     watch: {
-      include: `${JS_SRC}/**`
+      include: `${SRC_DEFAULT}/**`
     },
     plugins: [
       babel({

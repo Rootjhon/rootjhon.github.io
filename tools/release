@@ -156,7 +156,7 @@ build_gem() {
   rm -f ./*.gem
 
   npm run build
-  git add "$JS_DIST" -f # add JS dist to gem
+  git add "$JS_DIST" -f # add JS distribution files to gem
   gem build "$GEM_SPEC"
   cp "$JS_DIST"/* "$BACKUP_PATH"
 
