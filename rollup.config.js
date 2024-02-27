@@ -3,8 +3,8 @@ import terser from '@rollup/plugin-terser';
 import license from 'rollup-plugin-license';
 import path from 'path';
 
-const JS_SRC = '_javascript';
-const JS_DIST = 'assets/js/dist';
+const SRC_DEFAULT = '_javascript';
+const DIST_DEFAULT = 'assets/js/dist';
 const isProd = process.env.NODE_ENV === 'production';
 
 function build(filename) {
@@ -28,7 +28,7 @@ function build(filename) {
       license({
         banner: {
           commentStyle: 'ignored',
-          content: { file: path.join(__dirname, JS_SRC, '_copyright') }
+          content: { file: path.join(__dirname, SRC_DEFAULT, '_copyright') }
         }
       }),
       isProd && terser()
