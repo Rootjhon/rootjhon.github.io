@@ -70,12 +70,14 @@ _check_git() {
     exit 1
   fi
 
-  if [[ $working_branch != "$DEFAULT_BRANCH" &&
-    $working_branch != hotfix/* &&
-    $working_branch != "$PROD_BRANCH" ]]; then
-    echo "> Abort: Please run on the default, release or patch branch."
-    exit 1
-  fi
+  $opt_pre || (
+    if [[ $working_branch != "$DEFAULT_BRANCH" &&
+      $working_branch != hotfix/* &&
+      $working_branch != "$PROD_BRANCH" ]]; then
+      echo "> Abort: Please run on the default, release or patch branch."
+      exit 1
+    fi
+  )
 }
 
 _check_src() {

@@ -144,8 +144,7 @@
         <!-- add class to exist <a> tag -->
         {% assign _size = _img_content | size | minus: 1 %}
         {% capture _class %}
-          <!-- class="img-link{% unless _lqip %} shimmer{% endunless %}" -->
-          class="img-link{% unless _lqip %} {% endunless %}"
+          class="img-link{% unless _lqip %} shimmer{% endunless %}"
         {% endcapture %}
         {% assign _img_content = _img_content | slice: 0, _size | append: _class | append: '>' %}
 
@@ -155,6 +154,7 @@
           | default: _src
           | prepend: '<a href="'
           | append: '" class="popup img-link '
+          | append: _class
           | append: '">'
         %}
 

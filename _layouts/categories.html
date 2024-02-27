@@ -44,7 +44,7 @@ layout: page
           {% capture _category_url %}/categories/{{ category_name | slugify | url_encode }}/{% endcapture %}
           <a href="{{ _category_url | relative_url }}" class="mx-2">{{ category_name }}</a>
 
-          <!-- content count -->
+          <!-- content count & support subcategories -->
           {% assign top_posts_size = site.data["categories"][category_name] | size %}
           <span class="text-muted small font-weight-light">
             {% if sub_categories_size > 0 %}
