@@ -9,14 +9,16 @@ import {
   runRust
 } from './modules/plugins';
 
-basic();
-initSidebar();
-initTopbar();
 loadImg();
 imgPopup();
+initSidebar();
+initTopbar();
 initClipboard();
+basic();
+
 highlightLines();
 runCpp();
 runJavascript();
 runPython();
+runRust();
 runRust();

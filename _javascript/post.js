@@ -6,7 +6,6 @@ import {
   initClipboard,
   toc
 } from './modules/plugins';
-
 import {
   highlightLines,
   runCpp,
@@ -15,19 +14,18 @@ import {
   runRust,
 } from './modules/plugins';
 
+loadImg();
+toc();
+imgPopup();
+initSidebar();
+initLocaleDatetime();
+initClipboard();
+initTopbar();
+basic();
+
 highlightLines();
 runCpp();
 runJavascript();
 runPython();
 runRust();
-
-initSidebar();
-initTopbar();
-loadImg();
-imgPopup();
-initLocaleDatetime();
-initClipboard();
-toc();
-basic();
-
 

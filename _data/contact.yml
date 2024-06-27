@@ -30,3 +30,7 @@
 #   type: stack-overflow
 #   icon: 'iconfont icon-stack-overflow'
 #   url:  ''                  # Fill with your stackoverflow homepage
+#
+# - type: bluesky
+#   icon: 'fa-brands fa-bluesky'
+#   url: ''                   # Fill with your Bluesky profile link
