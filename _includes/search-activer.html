@@ -1,18 +1,18 @@
+<!-- 搜索按键激活 -->
 <script>
-    $(document).on('keydown', function(event) {
-        SearchBoxQuickTrigger(event);
-    });
+  $(document).on("keydown", function (event) {
+    SearchBoxQuickTrigger(event);
+  });
 
-    function SearchBoxQuickTrigger(event) {
-        var searchBox = $('#search-input');
-        if (event.which === 191) {
-            if (searchBox[0] !== document.activeElement) {
-            event.preventDefault();
-            searchBox.focus();
-            }
-        }
-        else if (event.which === 27) {
-            searchBox.blur();
-        }   
+  function SearchBoxQuickTrigger(event) {
+    var searchBox = $("#search-input");
+    if (event.which === 191) {
+      if (searchBox[0] !== document.activeElement) {
+        event.preventDefault();
+        searchBox.focus();
+      }
+    } else if (event.which === 27) {
+      searchBox.blur();
     }
+  }
 </script>
