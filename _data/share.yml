@@ -14,6 +14,18 @@ platforms:
   - type: Telegram
     icon: "fab fa-telegram"
     link: "https://t.me/share/url?url=URL&text=TITLE"
+    
+    - type: Line
+    icon: "iconfont icon-13"
+    link: "https://lineit.line.me/share/ui?url=URL&text=TITLE"
+    
+    - type: QQ
+    icon: "iconfont icon-QQ"
+    link: "https://connect.qq.com/widget/shareqq/index.html?url=URL&title=TITLE"
+
+  - type: Wechat
+    icon: "fa-brands fa-weixin"
+    link: "https://www.addtoany.com/ext/wechat/share/#url=URL&title=TITLE"
 
   # Uncomment below if you need to.
   #
@@ -41,15 +53,3 @@ platforms:
   # - type: Bluesky
   #   icon: "fa-brands fa-bluesky"
   #   link: "https://bsky.app/intent/compose?text=TITLE%20URL"
-  
-    - type: Line
-    icon: "iconfont icon-13"
-    link: "https://lineit.line.me/share/ui?url=URL&text=TITLE"
-    
-    - type: QQ
-    icon: "iconfont icon-QQ"
-    link: "https://connect.qq.com/widget/shareqq/index.html?url=URL&title=TITLE"
-
-  - type: Wechat
-    icon: "fa-brands fa-weixin"
-    link: "https://www.addtoany.com/ext/wechat/share/#url=URL&title=TITLE"
