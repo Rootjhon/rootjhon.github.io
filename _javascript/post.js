@@ -6,13 +6,6 @@ import {
   initClipboard,
   toc
 } from './modules/plugins';
-import {
-  highlightLines,
-  runCpp,
-  runJavascript,
-  runPython,
-  runRust,
-} from './modules/plugins';
 
 loadImg();
 toc();
@@ -22,10 +15,3 @@ initLocaleDatetime();
 initClipboard();
 initTopbar();
 basic();
-
-highlightLines();
-runCpp();
-runJavascript();
-runPython();
-runRust();
-
