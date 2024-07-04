@@ -1,17 +1,17 @@
 <!-- 搜索按键激活 -->
 <script>
-  $(document).on("keydown", function (event) {
+  document.addEventListener("keydown", function (event) {
     SearchBoxQuickTrigger(event);
   });
 
   function SearchBoxQuickTrigger(event) {
-    var searchBox = $("#search-input");
-    if (event.which === 191) {
-      if (searchBox[0] !== document.activeElement) {
+    var searchBox = document.getElementById("search-input");
+    if (event.key === '/') {
+      if (document.activeElement !== searchBox) {
         event.preventDefault();
         searchBox.focus();
       }
-    } else if (event.which === 27) {
+    } else if (event.key === 'Escape') {
       searchBox.blur();
     }
   }
