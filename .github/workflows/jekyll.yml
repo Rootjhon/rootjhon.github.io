@@ -81,6 +81,13 @@ jobs:
       #     mkdir -p _site/assets/css/
       #     cp -R _sass/dist/* _site/assets/css/
 
+      - name: List Directory
+        run: |
+          echo "Listing directory contents:"
+          ls -la
+          echo "Listing posts:"
+          ls -la _posts
+
       # - name: List Directory
       #   run: |
       #     echo "Listing directory contents:"
