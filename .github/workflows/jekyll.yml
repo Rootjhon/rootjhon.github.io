@@ -1,0 +1,128 @@
+name: "Build and Deploy"
+on:
+  push:
+    branches: ["blogpost"]
+    paths-ignore: [".gitignore", "LICENSE"]
+
+  repository_dispatch:
+    types: [submodule_updated]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: "recursive"
+          # If using the 'assets' git submodule from Chirpy Starter, uncomment above
+          # (See: https://github.com/cotes2020/chirpy-starter/tree/main/assets)
+
+      - name: Git Submodule Update
+        run: |
+          git submodule update --init --recursive
+          mv _posts _posts_bk
+
+      - name: Checkout Posts
+        uses: actions/checkout@v4
+        with:
+          repository: Rootjhon/BlogPosts
+          token: ${{ secrets.POST_TOKEN }}
+          path: _posts
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3
+          bundler-cache: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install npm dependencies
+        run: npm install
+
+      - name: Build front-end assets
+        run: npm run build
+
+      # - name: Copy Sass files to _site
+      #   run: |
+      #     mkdir -p _site/_sass/dist
+      #     cp -R _sass/dist/* _site/_sass/dist/
+      #     mkdir -p _site/assets/css/
+      #     cp -R _sass/dist/* _site/assets/css/
+
+      - name: List Directory
+        run: |
+          echo "Listing directory contents:"
+          ls -la
+          echo "Listing posts:"
+          ls -la _posts
+          echo "Listing search:"
+          ls -la assets/js/data/
+
+      # - name: List Directory
+      #   run: |
+      #     echo "Listing directory contents:"
+      #     ls -la
+      #     echo "Listing submodule contents:"
+      #     ls -la assets/lib
+      #     ls -la _posts
+      #     ls -R _site
+      #     ls -R _sass
+
+      - name: Build site
+        run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: "production"
+
+      - name: Test site
+        run: |
+          bundle exec htmlproofer _site \
+            \-\-disable-external \
+            \-\-ignore-urls "/^http:\/\//"
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "_site${{ steps.pages.outputs.base_path }}"
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

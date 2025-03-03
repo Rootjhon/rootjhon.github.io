@@ -44,6 +44,6 @@
       >Chirpy</a>
     {%- endcapture -%}
 
-    {{ site.data.locales[include.lang].meta | replace: ':PLATFORM', _platform | replace: ':THEME', _theme }}
+    {% comment %} {{ site.data.locales[include.lang].meta | replace: ':PLATFORM', _platform | replace: ':THEME', _theme }} {% endcomment %}
   </p>
 </footer>

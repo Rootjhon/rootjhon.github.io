@@ -35,8 +35,15 @@ layout: compress
           <!-- panel -->
           <aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
             <div class="access">
-              {% include_cached update-list.html lang=lang %}
-              {% include_cached trending-tags.html lang=lang %}
+              {% if page.layout != "post" or site.panel.post.lastmod %}
+                {% include_cached update-list.html lang=lang %}
+              {% endif %}
+              {% if page.layout != "post" or site.panel.post.trending_tags %}
+                {% include_cached trending-tags.html lang=lang %}
+              {% endif %}
+              {% if page.layout != "post" or site.panel.post.external_links %}
+                {% include_cached external-links.html lang=lang %}
+              {% endif %}
             </div>
 
             {% for _include in layout.panel_includes %}
@@ -82,5 +89,6 @@ layout: compress
     {% endfor %}
 
     {% include_cached search-loader.html lang=lang %}
+    {% include_cached search-activer.html lang=lang %}
   </body>
 </html>

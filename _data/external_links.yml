@@ -1,0 +1,18 @@
+-
+  icon: https://profile-counter.glitch.me/Rootjhon/count.svg
+  use_iconfont: false
+  name: 
+  automatic_name: true
+  link: https://rootjhon.github.io/
+  width: 150
+  height: 20
+
+# 在下面添加更多外部链接
+# -
+#   icon: 
+#   use_iconfont:
+#   name:
+#   automatic_name:
+#   link: 
+#   width: 20
+#   height: 20
